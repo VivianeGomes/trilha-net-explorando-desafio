@@ -1,21 +1,92 @@
-# DIO - Trilha .NET - Explorando a linguagem C#
+# DIO - Trilha .NET - Explorando a linguagem C# - Projeto de Hospedagem
 www.dio.me
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de explorando a linguagem C#, da trilha .NET da DIO.
+## Descrição
 
-## Contexto
-Você foi contratado para construir um sistema de hospedagem, que será usado para realizar uma reserva em um hotel. Você precisará usar a classe Pessoa, que representa o hóspede, a classe Suíte, e a classe Reserva, que fará um relacionamento entre ambos.
+Este é um projeto simples de hospedagem que permite aos usuários registrar informações sobre uma reserva, incluindo detalhes sobre a suíte, número de dias reservados e informações dos hóspedes.
+A proposta era aprimorar o projeto modelo, adicionando a lógica necessária para garantir o correto funcionamento de suas funcionalidades.
 
-O seu programa deverá cálcular corretamente os valores dos métodos da classe Reserva, que precisará trazer a quantidade de hóspedes e o valor da diária, concedendo um desconto de 10% para caso a reserva seja para um período maior que 10 dias.
+## Funcionalidades
 
-## Regras e validações
-1. Não deve ser possível realizar uma reserva de uma suíte com capacidade menor do que a quantidade de hóspedes. Exemplo: Se é uma suíte capaz de hospedar 2 pessoas, então ao passar 3 hóspedes deverá retornar uma exception.
-2. O método ObterQuantidadeHospedes da classe Reserva deverá retornar a quantidade total de hóspedes, enquanto que o método CalcularValorDiaria deverá retornar o valor da diária (Dias reservados x valor da diária).
-3. Caso seja feita uma reserva igual ou maior que 10 dias, deverá ser concedido um desconto de 10% no valor da diária.
+- **Cadastro de Reserva:** Os usuários podem inserir informações como o número de dias reservados, tipo de suíte, capacidade, valor da diária e detalhes dos hóspedes.
+- **Cálculo do Valor da Diária:** Com base nos dados fornecidos, o sistema calcula o valor total da reserva, aplicando descontos para estadias mais longas.
 
+## Tecnologias Utilizadas
 
-![Diagrama de classe estacionamento](diagrama_classe_hotel.png)
+- [.NET Core](https://dotnet.microsoft.com/)
+- [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
+- [Visual Studio](https://visualstudio.microsoft.com/) (opcional, para desenvolvimento no ambiente IDE)
+- [Visual Studio Code](https://code.visualstudio.com/) (opcional, para desenvolvimento no ambiente VS Code)
 
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+## Clonando via GitHub Desktop
+
+1. **Clone o Repositório:**
+   - Abra o GitHub Desktop.
+   - Selecione "Arquivo" > "Clonar repositório".
+   - Escolha o repositório na lista de repositórios disponíveis e clique em "Clonar".
+
+2. **Abra o Projeto:**
+   - No GitHub Desktop, clique em "Repositório" > "Abrir no Visual Studio Code" para abrir o projeto no VS Code.
+
+3. **Instale as Dependências e Execute o Projeto:**
+   - Siga os passos 3 a 5 da seção "Usando o Visual Studio Code" para instalar dependências e executar o projeto.
+
+Certifique-se de ter o [.NET Core](https://dotnet.microsoft.com/download) instalado.
+
+## Como Executar
+
+### Usando o Visual Studio
+
+1. **Clone o Repositório:**
+   - Abra o Visual Studio.
+   - Na tela inicial, selecione "Clonar um repositório" ou vá para "Arquivo" > "Clonar repositório".
+   - Insira a URL do repositório e siga as instruções para clonar.
+
+2. **Abra o Projeto:**
+   - No Visual Studio, vá para "Arquivo" > "Abrir" > "Projeto/Solução".
+   - Navegue até o diretório onde o repositório foi clonado e selecione o arquivo do projeto.
+
+3. **Configure o Projeto:**
+   - Certifique-se de que o projeto está configurado corretamente, escolhendo a versão correta do .NET Framework, se necessário.
+
+4. **Execute o Projeto:**
+   - Pressione `F5` ou vá para "Depurar" > "Iniciar Depuração" para executar o projeto.
+
+### Usando o Visual Studio Code (VS Code)
+
+1. **Clone o Repositório:**
+   - Abra o VS Code.
+   - Vá para a aba "Source Control" (ícone de ramo) e clique em "Clonar Repositório".
+   - Insira a URL do repositório e siga as instruções para clonar.
+
+2. **Abra o Projeto:**
+   - Abra a pasta do projeto no VS Code.
+
+3. **Instale as Dependências:**
+   - Abra o terminal no VS Code (menu `Exibir` > `Terminal`).
+   - Execute `dotnet restore` para instalar as dependências.
+
+4. **Configure o Projeto:**
+   - Verifique o arquivo `*.csproj` para garantir que a configuração do .NET seja adequada.
+
+5. **Execute o Projeto:**
+   - Execute `dotnet run` no terminal para iniciar o projeto.
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você deseja contribuir para melhorar este projeto, siga estas etapas:
+
+1. Faça um fork do repositório.
+2. Crie uma branch para sua contribuição (`git checkout -b feature/sua-feature`).
+3. Faça as alterações desejadas e comunique-as de forma clara.
+4. Envie um pull request.
+
+## Autores
+
+- [Leonardo Buta](https://github.com/leonardo-buta)
+- [Viviane Gomes](https://github.com/VivianeGomes)
+
+## Licença
+
+Este projeto está licenciado sob a MIT License.
+

@@ -1,25 +1,93 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using DesafioProjetoHospedagem.Models;
 
-Console.OutputEncoding = Encoding.UTF8;
+namespace DesafioProjetoHospedagem
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = Encoding.UTF8;
 
-// Cria os modelos de hóspedes e cadastra na lista de hóspedes
-List<Pessoa> hospedes = new List<Pessoa>();
+            // Variáveis auxiliares para armazenar os dados da reserva
+            int diasReservados = 0;
+            string tipoSuite = "";
+            int capacidade = 0;
+            decimal valorDiaria = 0;
+            List<Pessoa> hospedes = new List<Pessoa>();
+            int quantidadeHospedes = 0;
+            string nomeHospede = "";
 
-Pessoa p1 = new Pessoa(nome: "Hóspede 1");
-Pessoa p2 = new Pessoa(nome: "Hóspede 2");
+            // Pede ao usuário os dados da reserva
+            Console.WriteLine("Bem-vindo ao sistema de hospedagem!");
+            Console.WriteLine("Por favor, digite os dados da reserva.");
 
-hospedes.Add(p1);
-hospedes.Add(p2);
+            // Laço while para repetir o bloco try-catch até que não ocorra mais exceções
+            while (true)
+            {
+                try
+                {
+                    // Pede ao usuário o número de dias reservados
+                    Console.Write("Digite o número de dias reservados: ");
+                    diasReservados = int.Parse(Console.ReadLine());
 
-// Cria a suíte
-Suite suite = new Suite(tipoSuite: "Premium", capacidade: 2, valorDiaria: 30);
+                    // Pede ao usuário o tipo da suíte
+                    Console.Write("Digite o tipo da suíte (Standard, Premium ou Luxo): ");
+                    tipoSuite = Console.ReadLine();
 
-// Cria uma nova reserva, passando a suíte e os hóspedes
-Reserva reserva = new Reserva(diasReservados: 5);
-reserva.CadastrarSuite(suite);
-reserva.CadastrarHospedes(hospedes);
+                    // Pede ao usuário a capacidade da suíte
+                    Console.Write("Digite a capacidade da suíte: ");
+                    capacidade = int.Parse(Console.ReadLine());
 
-// Exibe a quantidade de hóspedes e o valor da diária
-Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
-Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");
+                    // Pede ao usuário o valor da diária da suíte
+                    Console.Write("Digite o valor da diária da suíte: ");
+                    valorDiaria = decimal.Parse(Console.ReadLine());
+
+                    // Pede ao usuário a quantidade de hóspedes
+                    Console.Write("Digite a quantidade de hóspedes: ");
+                    quantidadeHospedes = int.Parse(Console.ReadLine());
+
+                    // Pede ao usuário o nome de cada hóspede e adiciona à lista de hóspedes
+                    for (int i = 1; i <= quantidadeHospedes; i++)
+                    {
+                        Console.Write($"Digite o nome do hóspede {i}: ");
+                        nomeHospede = Console.ReadLine();
+                        Pessoa p = new Pessoa(nome: nomeHospede);
+                        hospedes.Add(p);
+                    }
+
+                    // Cria uma nova reserva
+                    Reserva reserva = new Reserva(diasReservados);
+
+                    // Cria a suíte com os dados informados pelo usuário
+                    Suite suite = new Suite(tipoSuite: tipoSuite, capacidade: capacidade, valorDiaria: valorDiaria);
+
+                    // Cadastra a suíte e os hóspedes na reserva
+                    reserva.CadastrarSuite(suite);
+                    reserva.CadastrarHospedes(hospedes);
+
+                    // Exibe a quantidade de hóspedes e o valor da diária
+                    Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
+                    Console.WriteLine($"Valor total: {reserva.CalcularValorDiaria()}");
+
+                    // Se não houver exceção, sai do laço
+                    break;
+
+                }
+
+                catch (Exception e)
+                {
+                    // Mostra a mensagem de erro ao usuário
+                    Console.WriteLine("Ocorreu um erro na reserva: " + e);
+
+                    // Pede ao usuário que digite novamente os dados da reserva
+                    Console.WriteLine("Por favor, digite novamente os dados da reserva.");
+                }
+            }
+
+            
+        }
+    }
+}
